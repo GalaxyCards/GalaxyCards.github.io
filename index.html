@@ -1,91 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Galaxy Cards - Sports Trading Cards</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galaxy Cards</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #0a0a0f;
+      background-color: #0d0d15;
       color: #fff;
     }
 
     header {
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      background: #12131a;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid #222;
     }
 
     header h1 {
       font-size: 1.8rem;
-      color: #fff;
+      color: #00bcd4;
       margin: 0;
     }
 
     nav a {
       color: #ccc;
-      margin-left: 1rem;
+      margin-left: 1.5rem;
       text-decoration: none;
+      font-size: 1rem;
     }
 
     nav a:hover {
-      color: #fff;
+      color: #00bcd4;
     }
 
     .hero {
       text-align: center;
       padding: 3rem 1rem;
-      background-image: url('https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=1470&q=80');
-      background-size: cover;
-      background-position: center;
-      color: white;
+      background: linear-gradient(145deg, #1a1c26, #0d0d15);
     }
 
     .hero h2 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
+      color: #00bcd4;
     }
 
     .hero p {
       font-size: 1.2rem;
       max-width: 600px;
       margin: auto;
+      color: #ccc;
+    }
+
+    .filter {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .filter select {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      border: none;
+      background: #1a1a2e;
+      color: #fff;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 2rem;
       padding: 2rem;
     }
 
     .card {
-      background-color: #1a1a2e;
-      padding: 1rem;
-      border-radius: 10px;
+      background-color: #1c1e2b;
+      border-radius: 12px;
+      overflow: hidden;
       text-align: center;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
     }
 
     .card img {
       width: 100%;
-      border-radius: 8px;
+      height: 180px;
+      object-fit: cover;
     }
 
     .card h3 {
       margin: 1rem 0 0.5rem;
     }
 
+    .card p {
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
     footer {
-      background-color: #111;
+      background-color: #12131a;
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      color: #888;
+      color: #777;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 600px) {
+      header, nav {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
     }
   </style>
 </head>
@@ -103,30 +144,57 @@
 
   <section class="hero">
     <h2>Explore the Universe of Sports Cards</h2>
-    <p>Discover rare, legendary, and exclusive cards from your favorite players and teams. Start your collection today!</p>
+    <p>Collect basketball, football, baseball, and rare galaxy editions. Choose your galaxy of cards!</p>
   </section>
 
-  <section class="cards">
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200?text=Card+1" alt="Card 1">
-      <h3>Legendary Slam Dunk</h3>
-      <p>Limited edition card from the 2023 finals.</p>
+  <section class="filter">
+    <label for="sportFilter">Filter by sport: </label>
+    <select id="sportFilter">
+      <option value="all">All</option>
+      <option value="basketball">Basketball</option>
+      <option value="football">Football</option>
+      <option value="baseball">Baseball</option>
+    </select>
+  </section>
+
+  <section class="cards" id="cardGrid">
+    <div class="card" data-sport="basketball">
+      <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?fit=crop&w=500&q=60" alt="Basketball card">
+      <h3>Galaxy Dunker</h3>
+      <p>Basketball | 2024 MVP Edition</p>
     </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200?text=Card+2" alt="Card 2">
-      <h3>Quarterback Star</h3>
-      <p>Exclusive holographic print.</p>
+    <div class="card" data-sport="football">
+      <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?fit=crop&w=500&q=60" alt="Football card">
+      <h3>Quarterback X</h3>
+      <p>Football | Limited 2023 Print</p>
     </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/300x200?text=Card+3" alt="Card 3">
-      <h3>Galaxy Rookie</h3>
-      <p>Top rookie pick of the year.</p>
+    <div class="card" data-sport="baseball">
+      <img src="https://images.unsplash.com/photo-1509223197845-458d87318791?fit=crop&w=500&q=60" alt="Baseball card">
+      <h3>Galaxy Swinger</h3>
+      <p>Baseball | Galaxy Rare Series</p>
+    </div>
+    <div class="card" data-sport="basketball">
+      <img src="https://images.unsplash.com/photo-1589983846997-719c6f921d5e?fit=crop&w=500&q=60" alt="Basketball card">
+      <h3>Sky Shot Legend</h3>
+      <p>Basketball | 2025 Collector's Edition</p>
     </div>
   </section>
 
   <footer>
     &copy; 2025 Galaxy Cards. All rights reserved.
   </footer>
+
+  <script>
+    const filter = document.getElementById('sportFilter');
+    const cards = document.querySelectorAll('.card');
+
+    filter.addEventListener('change', () => {
+      const value = filter.value;
+      cards.forEach(card => {
+        card.style.display = (value === 'all' || card.dataset.sport === value) ? 'block' : 'none';
+      });
+    });
+  </script>
 
 </body>
 </html>
