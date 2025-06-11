@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galaxy Cards - Sports Trading Cards</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0a0a0f;
+      color: #fff;
+    }
+
+    header {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #fff;
+      margin: 0;
+    }
+
+    nav a {
+      color: #ccc;
+      margin-left: 1rem;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+      background-image: url('https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .card {
+      background-color: #1a1a2e;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .card h3 {
+      margin: 1rem 0 0.5rem;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Galaxy Cards</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Explore the Universe of Sports Cards</h2>
+    <p>Discover rare, legendary, and exclusive cards from your favorite players and teams. Start your collection today!</p>
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200?text=Card+1" alt="Card 1">
+      <h3>Legendary Slam Dunk</h3>
+      <p>Limited edition card from the 2023 finals.</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200?text=Card+2" alt="Card 2">
+      <h3>Quarterback Star</h3>
+      <p>Exclusive holographic print.</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200?text=Card+3" alt="Card 3">
+      <h3>Galaxy Rookie</h3>
+      <p>Top rookie pick of the year.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Galaxy Cards. All rights reserved.
+  </footer>
+
+</body>
+</html>
